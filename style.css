@@ -1,0 +1,580 @@
+
+.familjen-grotesk{
+  font-family: "Familjen Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* background-color: #fff; */
+    /* color: #0000; */
+}
+.logo img {
+  width: 10vw; /* Use viewport width for responsiveness */
+  max-width: 50px; /* Ensure it doesn't exceed 50px */
+}
+
+.logo {
+  padding: 2% 5%; /* Use percentage for responsive padding */
+}
+#heading{
+    font-size: 3.6rem;
+    font-weight: 700;
+    line-height: 90px;
+    letter-spacing: 5px;
+    word-wrap: normal;
+    margin-bottom: 10px;
+    margin: 18px 0px;
+    text-transform: capitalize;
+    padding: 30px 80px 0px ;
+    max-width: 1250px;
+}
+#intro{
+  font-size: 17.6px;
+  font-family: "Plus Jakarta Sans",  sans-serif;
+  margin-right: 50px;
+  margin: 16px 0px 0px ;
+  font-weight: 100;
+  line-height: 2rem;
+  letter-spacing: normal;
+  word-break: normal;
+  padding: 30px 80px 0px;
+  overflow: hidden;
+  color: #313638;
+  max-width: 900px;
+  margin-bottom: 50px;
+}
+.about-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  background-color: #e8eaf6;
+  padding: 40px;
+  border-radius: 8px;
+  flex-wrap: wrap;
+}
+
+/* About me section */
+.about-section {
+  flex: 1;
+  max-width: 40%;
+}
+
+.about-section h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.about-section p {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Skills section */
+.skills-section {
+  flex: 1;
+  max-width: 40%;
+  margin-top: 130px;   
+
+}
+
+.skills-section h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.skills-section p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.skills-grid img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 4px;
+  background-color: #fff;
+  padding: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.projects-container {
+  margin-top: 20px; /* Space above the projects section */
+  padding: 80px;
+}
+
+#proj {
+  display: flex;
+  align-items: center; /* Center vertically with the icon */
+  margin-bottom: 10px; /* Space below the title */
+  color: #333;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+.project-grid {
+  display: flex; /* Use flexbox for the project grid */
+  flex-wrap: wrap; /* Allow wrapping */
+  justify-content: space-between; /* Space between cards */
+}
+
+.project-name, .project-email, .project-about, .project-bud {
+  margin-bottom: 25px; /* Reduce the space between form sections */
+}
+
+
+.card {
+  background-color: #f3f3f3; /* Light background for the card */
+  border-radius: 10px;
+  /* overflow: hidden; */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+  margin: 10px; /* Space around cards */
+  width: calc(33% - 20px); /* Width for 3 cards per row with margin */
+}
+
+.card img {
+  width: 100%;
+  height: 150px; /* Adjust the height of the image */
+  object-fit: cover; /* Ensures the image covers the space without distortion */
+  transition: transform 0.3s ease;
+}
+
+.card img:hover {
+  transform: scale(2.2); /* Adjusted scale for hover effect */
+}
+.card button:hover {
+  background-color: #8e24aa; /* Lighter purple */
+  transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+
+.card h3 {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.card p {
+  font-size: 1em;
+  margin: 10px;
+  color: #666;
+}
+
+.card button {
+  background-color: #6a0dad; /* Purple button */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+
+
+ /* Overall contact section centering */
+.contact-section {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  flex-direction: column; 
+  background-color: #e9dff8; 
+  padding: 40px;
+  border-radius: 10px;
+  min-height: 100vh;
+}
+
+/* Contact info section styling */
+.contact-info {
+  text-align: center; 
+  margin-bottom: 20px;
+}
+.contact-info h2 {
+  font-size: 2em;
+  color: #333;
+  max-width: 700px;
+}
+label{
+  font-size: 1.4rem;
+  
+}
+#copy{
+  font-size: 20px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+/* Text field and textarea styling */
+/* .contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-top: 9px;
+  font-family: cursive; 
+  font-size: 16px; 
+}
+.contact-form textarea {
+  height: 150px;
+}
+.project-name, .project-email, .project-about, .project-bud {
+  margin-bottom: 50px; 
+} */
+
+/* Interest buttons */
+.interest-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: center;  */
+  margin-top: 20px;
+  gap: 15px;
+}
+.interest-Buttons {
+  margin-top: 9px;
+  flex: 1;
+}
+.interest-Buttons button {
+  background-color: #fff;
+  border: 1px solid black;
+  color: black;
+  padding: 30px 40px 25px;
+  /* border-radius: 5px; */
+  margin: 5px ;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  flex: 1; /* Make button widths responsive */
+  min-width: 150px; /* Set a minimum width for buttons */
+  
+}
+.interest-Buttons h3{
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  text-align: center;
+  font-size: 1.2rem;
+
+}
+.interest-Buttons button.active {
+  background-color: #000; /* Active background color */
+  color: white; /* Active text color */
+  border: 1px solid snow; /* Active border color */
+}
+
+/* Submit button styling */
+.submit-button {
+  background-color: #6200ea;
+  color: white;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2em;
+  cursor: pointer;
+  display: inline-flex; /* Ensures the text and icon align properly */
+  justify-content: center; /* Centers text and icon */
+  align-items: center; /* Vertically center text and icon */
+  min-width: 180px;
+  gap: 10px;
+  margin: 20px auto; /* Centers the button horizontally */
+  width: auto; /* Makes the button size adjust according to its content */
+}
+
+.submit-button:hover {
+  background-color: #5200c7;
+} */
+
+
+/* Social links styling */
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Space between the icons */
+  margin-top: 20px;
+}
+
+/* Social icons */
+ .social-links a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #5E4289;
+  border-radius: 50%; /* Round icons */
+  transition: all 0.3s ease-in-out;
+  color: #5E4289;
+  text-decoration: none;
+}
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; 
+  margin-top: 20px;
+}
+
+.social-links a i {
+  font-size: 20px;
+}
+
+.social-links a:hover {
+  background-color: #5E4289;
+  color: #fff;
+}
+
+.social-links a:hover i {
+  transform: scale(1.1);
+} 
+
+
+/* Media Queries for responsiveness */
+@media (max-width: 1024px) {
+  .about-section, .skills-section {
+      max-width: 45%;
+  }
+
+  #heading {
+      font-size: 3rem;
+      line-height: 70px;
+      padding: 20px 40px 0px;
+  }
+
+  #intro {
+      font-size: 16px;
+      padding: 20px 40px 0px;
+      max-width: 100%;
+  }
+
+  .skills-section {
+      margin-top: 100px;
+  }
+}
+
+
+/* Medium screens (2 cards in a row) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .card {
+      width: calc(48% - 20px); /* 2 cards in a row with margin */
+  }
+  .projects-container{
+    padding: 0px;
+    margin-top: 40px;
+  }
+  .card{
+    overflow: hidden;
+  }
+}
+
+
+/* Media Query for 992px */
+@media (max-width: 992px) {
+  .contact-info, .contact-form {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+
+/* Media Queries for 768px */
+@media (max-width: 768px) {
+  .logo {
+    padding: 10px 20px; /* Adjust padding for smaller devices */
+}
+  .card {
+      width: 100%; /* Stack cards vertically, one per row */
+      margin-bottom: 20px; /* Space between stacked cards */
+      margin-top: 25px;
+  }
+  .projects-container{
+    margin-top: 40px;
+    padding: 0px;
+    margin-bottom: 40px;
+  }
+  .card{
+    overflow: hidden;
+  }
+  .interest-Buttons button {
+    padding: 20px; /* Adjust padding for smaller screens */
+  }
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.about-section, .skills-section {
+    max-width: 100%;
+    text-align: center;
+}
+
+.skills-section {
+    margin-top: 50px;
+}
+
+.skills-grid {
+    grid-template-columns: repeat( 1fr);
+}
+
+#heading {
+    font-size: 2.5rem;
+    line-height: 50px;
+    padding: 10px 20px;
+}
+
+#intro {
+    font-size: 15px;
+    padding: 10px 20px;
+    max-width: 100%;
+}
+}
+
+
+
+
+/* For very small screens (up to 480px) */
+@media (max-width: 480px) {
+  .skills-grid {
+      grid-template-columns: repeat( 1fr);
+  }
+  .skills-grid img{
+    display: block;
+    margin: auto;
+  }
+
+  .skills-section {
+      margin-top: 30px;
+  }
+
+  #heading {
+      font-size: 2rem;
+      line-height: 40px;
+  }
+
+  #intro {
+      font-size: 14px;
+  }
+  .interest-Buttons button {
+    padding: 15px; /* Further adjust padding */
+  }
+}
+
+
+
+
+@media (min-width: 300px) and (max-width: 400px) {
+  
+  .interest-Buttons button {
+    padding: 12px; /* Adjust padding for 300px to 400px screens */
+    min-width: 90px; /* Minimum width for 300px to 400px screens */
+  }
+.interest-Buttons h3{
+  font-size: 1rem;
+}
+}
+
+/* Style for the error messages */
+/* Input and Textarea Styling */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 8px; /* Reduced space between input and next element */
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-top: 0; /* Removed the extra margin at the top */
+  font-family: cursive;
+  font-size: 16px;
+  box-sizing: border-box; /* Ensures padding doesn’t affect the width */
+}
+
+/* Error Message Styling */
+/* Input and Textarea Styling */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 5px; /* Further reduced the space between input and next element */
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-top: 0; /* Remove any extra top margin */
+  font-family: cursive;
+  font-size: 16px;
+  box-sizing: border-box; /* Ensures padding doesn’t affect the width */
+}
+.contact-form textarea{
+  height: 150px;
+}
+
+/* Error Message Styling */
+.error-message {
+  color: red;
+  font-size: 16px;
+  margin-top: 3px; /* Fine-tuned margin to reduce space */
+  margin-bottom: 0; /* Remove bottom margin */
+  padding: 0;
+}
+
+.footer {
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 14px;
+}
+
+.footer p {
+  margin: 0;
+}
+.contact-section {
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.5s ease-in; /* Smooth transition */
+}
+
+.contact-section.visible {
+  opacity: 1; /* Fade in */
+}
+.typing-animation {
+  border-right: 3px solid; /* This will be the cursor */
+  display: inline-block; /* Ensure the width is calculated correctly */
+  white-space: normal; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflow */
+  animation: blink 1s steps(1) infinite; /* Adjust the speed and make it infinite */
+}
+
+/* Keyframes for blinking effect */
+@keyframes blink {
+  0%, 100% {
+    border-color: transparent; /* Cursor invisible */
+  }
+  50% {
+    border-color: black; /* Cursor visible */
+  }
+}
+
+.highlight{
+  color: #ff00cc;
+}
+
+@keyframes vibrate {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-2px); }
+  40%, 80% { transform: translateX(2px); }
+}
+
+.vibrate {
+  animation: vibrate 0.3s ease-in-out;
+}
