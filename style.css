@@ -511,7 +511,7 @@ label{
   border-radius: 10px;
   border: 1px solid #ccc;
   margin-top: 0; /* Remove any extra top margin */
-  font-family: cursive;
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
   box-sizing: border-box; /* Ensures padding doesn’t affect the width */
 }
