@@ -173,6 +173,7 @@ function handleSubmit(event) {
         // Change the button text to 'Submitting...'
         const submitButton = document.querySelector('#projectForm button[type="submit"]');
         submitButton.textContent = 'Submitting...';
+        submitButton.disabled = true; // Disable button to prevent multiple submissions
 
         // Send the email
         emailjs.send('service_8764c1p', 'template_zi0x1am', templateParams)
@@ -184,12 +185,13 @@ function handleSubmit(event) {
                 setTimeout(() => {
                     resetForm();
                     submitButton.textContent = 'Submit'; // Restore button text
+                    submitButton.disabled = false; // Re-enable the button
                 }, 3000); // Reset form after 3 seconds
             }, function(error) {
                 console.log('FAILED...', error);
                 submitButton.textContent = 'Submit'; // Restore button text on error
+                submitButton.disabled = false; // Re-enable the button
                 document.getElementById('errorMessage').style.display = 'block'; // Show error message
- 
 
 
                 // Add vibrate animation to the submit button
