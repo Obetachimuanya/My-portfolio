@@ -131,46 +131,88 @@ function handleSubmit(event) {
         console.log(templateParams); // Debugging: Check what you are sending
 
         // Send the email
-        emailjs.send('service_8764c1p', 'template_zi0x1am', templateParams)
-            .then(function(response) {
-                console.log('SUCCESS!', response.status, response.text);
-                document.getElementById('successMessage').style.display = 'block'; // Show success message
 
-                // Delay form reset to allow the success message to be visible for 3 seconds
-                setTimeout(resetForm, 3000); // Reset form after 3 seconds
-            }, function(error) {
-                console.log('FAILED...', error);
-
-                // Show error message in red and animate button
-                const errorMessage = document.getElementById('errorMessage');
-                errorMessage.style.display = 'block'; // Show error message
-
-                // Add vibrate animation to the submit button
-                const submitButton = document.querySelector('#projectForm button[type="submit"]');
-                submitButton.classList.add('vibrate'); // Add vibration class
-
-                // Remove vibration after 0.3 seconds
-                setTimeout(() => {
-                    submitButton.classList.remove('vibrate'); // Remove vibration class
-                }, 300);
+        function sendEmail() {
+            const submitButton = document.querySelector('#projectForm button[type="submit"]');
+            submitButton.textContent = 'Submitting...'; // Change button text to "Submitting..."
+        
+            emailjs.send('service_8764c1p', 'template_zi0x1am', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    document.getElementById('successMessage').style.display = 'block'; // Show success message
+        
+                    // Delay form reset to allow the success message to be visible for 3 seconds
+                    setTimeout(resetForm, 3000); // Reset form after 3 seconds
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    submitButton.textContent = 'Submit'; // Restore button text on error
+                    document.getElementById('errorMessage').style.display = 'block'; // Show error message
+        
+                    // Add vibrate animation to the submit button
+                    submitButton.classList.add('vibrate'); // Add vibration class
+        
+                    // Remove vibration after 0.3 seconds
+                    setTimeout(() => {
+                        submitButton.classList.remove('vibrate'); // Remove vibration class
+                    }, 300);
+                });
+        }
+        
+        // Reset form and hide success and error messages
+        function resetForm() {
+            document.getElementById('projectForm').reset(); // Reset form fields
+            selectedBudget = null; // Reset budget selection
+            document.getElementById('budgetError').textContent = ''; // Clear budget error
+            document.getElementById('successMessage').style.display = 'none'; // Hide success message
+            document.getElementById('errorMessage').style.display = 'none'; // Hide error message
+        
+            // Remove active state from budget buttons
+            const budgetButtons = document.querySelectorAll('.interest-Buttons button');
+            budgetButtons.forEach(button => {
+                button.classList.remove('active');
             });
-    }
-}
+        }
+        
+//         emailjs.send('service_8764c1p', 'template_zi0x1am', templateParams)
+//             .then(function(response) {
+//                 console.log('SUCCESS!', response.status, response.text);
+//                 document.getElementById('successMessage').style.display = 'block'; // Show success message
 
-// Reset form and hide success and error messages
-function resetForm() {
-    document.getElementById('projectForm').reset(); // Reset form fields
-    selectedBudget = null; // Reset budget selection
-    document.getElementById('budgetError').textContent = ''; // Clear budget error
-    document.getElementById('successMessage').style.display = 'none'; // Hide success message
-    document.getElementById('errorMessage').style.display = 'none'; // Hide error message
+//                 // Delay form reset to allow the success message to be visible for 3 seconds
+//                 setTimeout(resetForm, 3000); // Reset form after 3 seconds
+//             }, function(error) {
+//                 console.log('FAILED...', error);
 
-    // Remove active state from budget buttons
-    const budgetButtons = document.querySelectorAll('.interest-Buttons button');
-    budgetButtons.forEach(button => {
-        button.classList.remove('active');
-    });
-}
+//                 // Show error message in red and animate button
+//                 const errorMessage = document.getElementById('errorMessage');
+//                 errorMessage.style.display = 'block'; // Show error message
+
+//                 // Add vibrate animation to the submit button
+//                 const submitButton = document.querySelector('#projectForm button[type="submit"]');
+//                 submitButton.classList.add('vibrate'); // Add vibration class
+
+//                 // Remove vibration after 0.3 seconds
+//                 setTimeout(() => {
+//                     submitButton.classList.remove('vibrate'); // Remove vibration class
+//                 }, 300);
+//             });
+//     }
+// }
+
+// // Reset form and hide success and error messages
+// function resetForm() {
+//     document.getElementById('projectForm').reset(); // Reset form fields
+//     selectedBudget = null; // Reset budget selection
+//     document.getElementById('budgetError').textContent = ''; // Clear budget error
+//     document.getElementById('successMessage').style.display = 'none'; // Hide success message
+//     document.getElementById('errorMessage').style.display = 'none'; // Hide error message
+
+//     // Remove active state from budget buttons
+//     const budgetButtons = document.querySelectorAll('.interest-Buttons button');
+//     budgetButtons.forEach(button => {
+//         button.classList.remove('active');
+//     });
+// }
 
 // Clear error messages on input
 document.getElementById('name').addEventListener('input', () => {
