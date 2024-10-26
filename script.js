@@ -120,11 +120,10 @@ function handleSubmit(event) {
         const project = document.getElementById('project').value.trim();
 
         const templateParams = {
-            to_name: 'Recipient Name',
-            from_name: name,
-            user_email: email, // Add user's email here
-            project_details: project,
-            project_budget: `$${selectedBudget.toLocaleString()}`
+            from_name: name,           // Name from the form input
+            user_email: email,         // Email address from the form input
+            project_details: project,  // Project details from the form
+            project_budget: `$${selectedBudget.toLocaleString()}` // Formatted budget
         };
         
         
@@ -218,6 +217,18 @@ function extractBudgetValue(budgetText) {
         return null;
     }
 }
+const images = document.querySelectorAll('.card img');
+
+images.forEach(image => {
+    image.addEventListener('click', () => {
+        if (image.style.transform === 'scale(2.2)') {
+            image.style.transform = 'scale(1)'; // Return to normal
+        } else {
+            image.style.transform = 'scale(2.2)'; // Enlarge on click
+        }
+    });
+});
+
 
 
 // the animation
