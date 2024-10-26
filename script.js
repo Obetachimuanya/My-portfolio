@@ -103,6 +103,50 @@ function validateBudget() {
 }
 
 // Handle form submission
+// function handleSubmit(event) {
+//     event.preventDefault(); // Prevent the default form submission
+
+//     // Validate all fields
+//     const isNameValid = validateName();
+//     const isEmailValid = validateEmail();
+//     const isProjectValid = validateProject();
+//     const isBudgetValid = validateBudget(); // Validate budget
+
+//     // Check if all validations passed
+//     if (isNameValid && isEmailValid && isProjectValid && isBudgetValid) {
+//         // Prepare the email data
+//         const name = document.getElementById('name').value.trim();
+//         const email = document.getElementById('email').value.trim();
+//         const project = document.getElementById('project').value.trim();
+
+//         const templateParams = {
+//             from_name: name,           // Name from the form input
+//             user_email: email,         // Email address from the form input
+//             project_details: project,  // Project details from the form
+//             project_budget: `$${selectedBudget.toLocaleString()}` // Formatted budget
+//         };
+        
+        
+        
+//         console.log(templateParams); // Debugging: Check what you are sending
+
+//         // Send the email
+
+//         emailjs.send('service_8764c1p', 'template_zi0x1am', templateParams)
+//             .then(function(response) {
+//                 console.log('SUCCESS!', response.status, response.text);
+//                 document.getElementById('successMessage').style.display = 'block'; // Show success message
+
+//                 // Delay form reset to allow the success message to be visible for 3 seconds
+//                 setTimeout(resetForm, 3000); // Reset form after 3 seconds
+//             }, function(error) {
+//                 console.log('FAILED...', error);
+
+//                 // Show error message in red and animate button
+//                 const errorMessage = document.getElementById('errorMessage');
+//                 errorMessage.style.display = 'block'; // Show error message
+
+// Handle form submission
 function handleSubmit(event) {
     event.preventDefault(); // Prevent the default form submission
 
@@ -120,99 +164,60 @@ function handleSubmit(event) {
         const project = document.getElementById('project').value.trim();
 
         const templateParams = {
-            from_name: name,           // Name from the form input
-            user_email: email,         // Email address from the form input
-            project_details: project,  // Project details from the form
-            project_budget: `$${selectedBudget.toLocaleString()}` // Formatted budget
+            from_name: name,
+            user_email: email,
+            project_details: project,
+            project_budget: `$${selectedBudget.toLocaleString()}`
         };
-        
-        
-        
-        console.log(templateParams); // Debugging: Check what you are sending
+
+        // Change the button text to 'Submitting...'
+        const submitButton = document.querySelector('#projectForm button[type="submit"]');
+        submitButton.textContent = 'Submitting...';
 
         // Send the email
+        emailjs.send('service_8764c1p', 'template_zi0x1am', templateParams)
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                document.getElementById('successMessage').style.display = 'block'; // Show success message
+                
+                // Delay form reset to allow the success message to be visible for 3 seconds
+                setTimeout(() => {
+                    resetForm();
+                    submitButton.textContent = 'Submit'; // Restore button text
+                }, 3000); // Reset form after 3 seconds
+            }, function(error) {
+                console.log('FAILED...', error);
+                submitButton.textContent = 'Submit'; // Restore button text on error
+                document.getElementById('errorMessage').style.display = 'block'; // Show error message
+ 
 
-        function sendEmail() {
-            const submitButton = document.querySelector('#projectForm button[type="submit"]');
-            submitButton.textContent = 'Submitting...'; // Change button text to "Submitting..."
-        
-            emailjs.send('service_8764c1p', 'template_zi0x1am', templateParams)
-                .then(function(response) {
-                    console.log('SUCCESS!', response.status, response.text);
-                    document.getElementById('successMessage').style.display = 'block'; // Show success message
-        
-                    // Delay form reset to allow the success message to be visible for 3 seconds
-                    setTimeout(resetForm, 3000); // Reset form after 3 seconds
-                }, function(error) {
-                    console.log('FAILED...', error);
-                    submitButton.textContent = 'Submit'; // Restore button text on error
-                    document.getElementById('errorMessage').style.display = 'block'; // Show error message
-        
-                    // Add vibrate animation to the submit button
-                    submitButton.classList.add('vibrate'); // Add vibration class
-        
-                    // Remove vibration after 0.3 seconds
-                    setTimeout(() => {
-                        submitButton.classList.remove('vibrate'); // Remove vibration class
-                    }, 300);
-                });
-        }
-        
-        // Reset form and hide success and error messages
-        function resetForm() {
-            document.getElementById('projectForm').reset(); // Reset form fields
-            selectedBudget = null; // Reset budget selection
-            document.getElementById('budgetError').textContent = ''; // Clear budget error
-            document.getElementById('successMessage').style.display = 'none'; // Hide success message
-            document.getElementById('errorMessage').style.display = 'none'; // Hide error message
-        
-            // Remove active state from budget buttons
-            const budgetButtons = document.querySelectorAll('.interest-Buttons button');
-            budgetButtons.forEach(button => {
-                button.classList.remove('active');
+
+                // Add vibrate animation to the submit button
+                const submitButton = document.querySelector('#projectForm button[type="submit"]');
+                submitButton.classList.add('vibrate'); // Add vibration class
+
+                // Remove vibration after 0.3 seconds
+                setTimeout(() => {
+                    submitButton.classList.remove('vibrate'); // Remove vibration class
+                }, 300);
             });
-        }
-        
-//         emailjs.send('service_8764c1p', 'template_zi0x1am', templateParams)
-//             .then(function(response) {
-//                 console.log('SUCCESS!', response.status, response.text);
-//                 document.getElementById('successMessage').style.display = 'block'; // Show success message
+    }
+}
 
-//                 // Delay form reset to allow the success message to be visible for 3 seconds
-//                 setTimeout(resetForm, 3000); // Reset form after 3 seconds
-//             }, function(error) {
-//                 console.log('FAILED...', error);
+// Reset form and hide success and error messages
+function resetForm() {
+    document.getElementById('projectForm').reset(); // Reset form fields
+    selectedBudget = null; // Reset budget selection
+    document.getElementById('budgetError').textContent = ''; // Clear budget error
+    document.getElementById('successMessage').style.display = 'none'; // Hide success message
+    document.getElementById('errorMessage').style.display = 'none'; // Hide error message
 
-//                 // Show error message in red and animate button
-//                 const errorMessage = document.getElementById('errorMessage');
-//                 errorMessage.style.display = 'block'; // Show error message
-
-//                 // Add vibrate animation to the submit button
-//                 const submitButton = document.querySelector('#projectForm button[type="submit"]');
-//                 submitButton.classList.add('vibrate'); // Add vibration class
-
-//                 // Remove vibration after 0.3 seconds
-//                 setTimeout(() => {
-//                     submitButton.classList.remove('vibrate'); // Remove vibration class
-//                 }, 300);
-//             });
-//     }
-// }
-
-// // Reset form and hide success and error messages
-// function resetForm() {
-//     document.getElementById('projectForm').reset(); // Reset form fields
-//     selectedBudget = null; // Reset budget selection
-//     document.getElementById('budgetError').textContent = ''; // Clear budget error
-//     document.getElementById('successMessage').style.display = 'none'; // Hide success message
-//     document.getElementById('errorMessage').style.display = 'none'; // Hide error message
-
-//     // Remove active state from budget buttons
-//     const budgetButtons = document.querySelectorAll('.interest-Buttons button');
-//     budgetButtons.forEach(button => {
-//         button.classList.remove('active');
-//     });
-// }
+    // Remove active state from budget buttons
+    const budgetButtons = document.querySelectorAll('.interest-Buttons button');
+    budgetButtons.forEach(button => {
+        button.classList.remove('active');
+    });
+}
 
 // Clear error messages on input
 document.getElementById('name').addEventListener('input', () => {
