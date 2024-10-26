@@ -145,8 +145,6 @@ function validateBudget() {
 //                 // Show error message in red and animate button
 //                 const errorMessage = document.getElementById('errorMessage');
 //                 errorMessage.style.display = 'block'; // Show error message
-
-// Handle form submission
 function handleSubmit(event) {
     event.preventDefault(); // Prevent the default form submission
 
@@ -158,6 +156,9 @@ function handleSubmit(event) {
 
     // Check if all validations passed
     if (isNameValid && isEmailValid && isProjectValid && isBudgetValid) {
+        const submitButton = document.querySelector('#projectForm button[type="submit"]');
+        submitButton.textContent = "Submitting..."; // Change button text to "Submitting"
+
         // Prepare the email data
         const name = document.getElementById('name').value.trim();
         const email = document.getElementById('email').value.trim();
@@ -170,29 +171,23 @@ function handleSubmit(event) {
             project_budget: `$${selectedBudget.toLocaleString()}`
         };
 
-        // Change the button text to 'Submitting...'
-        const submitButton = document.querySelector('#projectForm button[type="submit"]');
-        submitButton.textContent = 'Submitting...';
-        submitButton.disabled = true; // Disable button to prevent multiple submissions
-
-        // Send the email
         emailjs.send('service_8764c1p', 'template_zi0x1am', templateParams)
             .then(function(response) {
                 console.log('SUCCESS!', response.status, response.text);
                 document.getElementById('successMessage').style.display = 'block'; // Show success message
-                
+                submitButton.textContent = "Submit"; // Reset button text to "Submit"
+
                 // Delay form reset to allow the success message to be visible for 3 seconds
-                setTimeout(() => {
-                    resetForm();
-                    submitButton.textContent = 'Submit'; // Restore button text
-                    submitButton.disabled = false; // Re-enable the button
-                }, 3000); // Reset form after 3 seconds
+                setTimeout(resetForm, 3000); // Reset form after 3 seconds
             }, function(error) {
                 console.log('FAILED...', error);
-                submitButton.textContent = 'Submit'; // Restore button text on error
-                submitButton.disabled = false; // Re-enable the button
                 document.getElementById('errorMessage').style.display = 'block'; // Show error message
 
+                // Reset button text after 2 seconds
+                setTimeout(() => {
+                    submitButton.textContent = "Submit"; // Reset button text to "Submit"
+                }, 2000);
+                
 
                 // Add vibrate animation to the submit button
                 const submitButton = document.querySelector('#projectForm button[type="submit"]');
