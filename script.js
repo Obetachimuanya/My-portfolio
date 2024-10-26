@@ -120,11 +120,13 @@ function handleSubmit(event) {
         const project = document.getElementById('project').value.trim();
 
         const templateParams = {
-            to_name: 'Recipient Name', // Set recipient name
-            from_name: name,           // From name from the form
-            project_details: project,  // Project details from the form
-            project_budget: `$${selectedBudget.toLocaleString()}` // Format the budget for readability
+            to_name: 'Recipient Name',
+            from_name: name,
+            user_email: email, // Add user's email here
+            project_details: project,
+            project_budget: `$${selectedBudget.toLocaleString()}`
         };
+        
         
         
         console.log(templateParams); // Debugging: Check what you are sending

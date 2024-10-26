@@ -568,7 +568,7 @@ label{
 .highlight{
   color: #ff00cc;
 }
-
+/* 
 @keyframes vibrate {
   0%, 100% { transform: translateX(0); }
   20%, 60% { transform: translateX(-2px); }
@@ -577,4 +577,17 @@ label{
 
 .vibrate {
   animation: vibrate 0.3s ease-in-out;
+} */
+.vibrate {
+  animation: vibrate 0.4s ease-in-out; /* Adjusted duration for visibility */
 }
+
+@keyframes vibrate {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-4px); } /* Increased shift for more noticeable vibration */
+  40% { transform: translateX(4px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+  100% { transform: translateX(0); }
+}
+
