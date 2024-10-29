@@ -508,19 +508,19 @@ label{
 }
 }
 
-/* Style for the error messages */
+
 /* Input and Textarea Styling */
 .contact-form input,
 .contact-form textarea {
   width: 100%;
   padding: 15px;
-  margin-bottom: 8px; /* Reduced space between input and next element */
+  margin-bottom: 8px; 
   border-radius: 10px;
   border: 1px solid #ccc;
-  margin-top: 0; /* Removed the extra margin at the top */
+  margin-top: 0; 
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
-  box-sizing: border-box; /* Ensures padding doesn’t affect the width */
+  box-sizing: border-box; 
 }
 
 /* Error Message Styling */
