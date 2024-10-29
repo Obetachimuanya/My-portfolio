@@ -53,7 +53,7 @@
   align-items: flex-start;
   gap: 40px;
   background-color: #e8eaf6;
-  padding: 40px;
+  padding: 80px;
   border-radius: 8px;
   flex-wrap: wrap;
 }
@@ -505,8 +505,8 @@ label{
 /* Input and Textarea Styling */
 .contact-form input,
 .contact-form textarea {
-  width: 100%;
-  padding: 15px;
+  width: 100% !important;
+  padding: 15px ;
   margin-bottom: 5px; /* Further reduced the space between input and next element */
   border-radius: 10px;
   border: 1px solid #ccc;
@@ -516,7 +516,7 @@ label{
   box-sizing: border-box; /* Ensures padding doesn’t affect the width */
 }
 .contact-form textarea{
-  height: 150px;
+  height: 150px !important;
 }
 
 /* Error Message Styling */
