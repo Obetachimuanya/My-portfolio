@@ -113,6 +113,21 @@
   color: #666;
   margin-bottom: 20px;
 }
+.resume-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #5f6368;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+.resume-button:hover {
+  background-color: #4a5157;
+}
+
+
+
 
 .skills-grid {
   display: grid;
@@ -612,4 +627,3 @@ label{
   80% { transform: translateX(4px); }
   100% { transform: translateX(0); }
 }
-
