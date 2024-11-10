@@ -317,3 +317,4 @@ document.addEventListener('scroll', function() {
                }, 100); // Adjust speed here (in milliseconds)
     }
 });
+document.getElementById("year").textContent = new Date().getFullYear();
