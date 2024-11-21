@@ -424,10 +424,7 @@ label{
 
 /* Media Queries for 768px */
 @media (max-width: 768px) {
-  .logo {
-    /* padding: 10px 20px;  */
-    /* margin-bottom: 20px; */
-}
+
   .card {
       width: 100%; /* Stack cards vertically, one per row */
       margin-bottom: 20px; /* Space between stacked cards */
