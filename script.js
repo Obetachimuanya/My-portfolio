@@ -7,9 +7,11 @@ document.getElementById('viewProject1').addEventListener('click', function() {
   });
   
   document.getElementById('viewProject3').addEventListener('click', function() {
-    window.open('https://example.com/project3', '_blank');
+    window.open('!!!', '_blank');
   });
-  
+  document.getElementById('viewProject4').addEventListener('click', function() {
+    window.open('https://alphaceema.com/', '_blank');
+  });
 // Handle budget selection variable
 let selectedBudget = null;
 
