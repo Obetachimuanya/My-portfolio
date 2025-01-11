@@ -325,4 +325,61 @@ document.addEventListener('scroll', function() {
                }, 100); // Adjust speed here (in milliseconds)
     }
 });
+// Ensure the page is scrolled to the top when the page is refreshed or loaded
+window.onload = function() {
+    window.scrollTo(0, 0); // Scrolls to the top of the page
+};
+
 document.getElementById("year").textContent = new Date().getFullYear();
+
+
+// Function to animate the count from 1 to targetValue
+// function animateCounter(element, targetValue, duration) {
+//     let currentValue = 1;
+//     const incrementTime = duration / targetValue; // Time interval for each increment
+
+//     const interval = setInterval(() => {
+//         element.textContent = `${currentValue}+`; // Update the element text with the "+" sign
+//         if (currentValue === targetValue) {
+//             clearInterval(interval); // Stop when the target value is reached
+//         }
+//         currentValue++;
+//     }, incrementTime);
+// }
+
+// // Wait for the DOM to fully load before starting the animation
+// document.addEventListener('DOMContentLoaded', () => {
+//     const experienceCount = document.getElementById('experienceCount').querySelector('span');
+//     const projectsCount = document.getElementById('projectsCount').querySelector('span');
+
+//     animateCounter(experienceCount, 2, 2000); // Count from 1 to 4+ in 2 seconds
+//     animateCounter(projectsCount, 4, 2000);  // Count from 1 to 4+ in 2 seconds
+// });
+
+// Function to animate the count from 1 to targetValue
+function animateCounter(element, targetValue, duration) {
+    let currentValue = 1;
+    const incrementTime = duration / targetValue; // Time interval for each increment
+
+    const interval = setInterval(() => {
+        element.textContent = currentValue; // Update the element text with the current count
+        if (currentValue === targetValue) {
+            clearInterval(interval); // Stop when the target value is reached
+            element.textContent = `${currentValue}+`; // Add "+" after reaching the target
+        }
+        currentValue++;
+    }, incrementTime);
+}
+
+// Wait for the DOM to fully load before starting the animation
+document.addEventListener('DOMContentLoaded', () => {
+    const experienceCount = document.getElementById('experienceCount').querySelector('span');
+    const projectsCount = document.getElementById('projectsCount').querySelector('span');
+
+    animateCounter(experienceCount, 2, 2000); // Count from 1 to 4 in 2 seconds, then add "+"
+    animateCounter(projectsCount, 4, 2000);  // Count from 1 to 4 in 2 seconds, then add "+"
+});
+
+
+
+

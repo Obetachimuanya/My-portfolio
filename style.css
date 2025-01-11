@@ -557,6 +557,7 @@ label{
 }
 .contact-form textarea{
   height: 150px !important;
+  resize: none;
 }
 
 /* Error Message Styling */
