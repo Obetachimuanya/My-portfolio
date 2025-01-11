@@ -12,6 +12,12 @@ document.getElementById('viewProject1').addEventListener('click', function() {
   document.getElementById('viewProject4').addEventListener('click', function() {
     window.open('https://alphaceema.com/', '_blank');
   });
+  document.getElementById('viewProject5').addEventListener('click', function() {
+    window.open('https://timons-court.com/', '_blank');
+  });
+  document.getElementById('viewProject6').addEventListener('click', function() {
+    window.open('https://vkuservices.com/', '_blank');
+  });
 // Handle budget selection variable
 let selectedBudget = null;
 

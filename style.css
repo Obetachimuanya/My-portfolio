@@ -38,6 +38,10 @@
 .logo {
   padding: 2% 5%; /* Use percentage for responsive padding */
 }
+.experience{
+  padding: 30px 80px 0px ;
+}
+
 #heading{
     font-size: 3.6rem;
     font-weight: 700;
@@ -162,6 +166,7 @@
   display: flex; /* Use flexbox for the project grid */
   flex-wrap: wrap; /* Allow wrapping */
   justify-content: space-between; /* Space between cards */
+ 
 }
 
 .project-name, .project-email, .project-about, .project-bud {
@@ -178,6 +183,7 @@
   transition: transform 0.3s ease;
   margin: 10px; /* Space around cards */
   width: calc(33% - 20px); /* Width for 3 cards per row with margin */
+  margin-top: 30px;
 }
 
 .card img {
@@ -624,3 +630,16 @@ label{
   80% { transform: translateX(4px); }
   100% { transform: translateX(0); }
 }
+/* Stacking vertically on smaller screens */
+@media (max-width: 768px) {
+  .xui-d-flex {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .xui-p-1 {
+      width: 100%;
+      text-align: center;
+  }
+}
+
